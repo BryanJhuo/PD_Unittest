@@ -1,0 +1,10 @@
+# 選用工具：本專案本身只用 Python 標準函式庫 (subprocess / unittest / pathlib)，
+# 不裝這個檔案也完全可以跑測試。
+# 如果想改用 pytest 執行同一批 unittest 測試（錯誤訊息排版較好、可平行執行），再安裝：
+pytest>=8.0
+
+# scripts/check_coverage.py 需要的套件，用來量 Statement / Branch Coverage。
+# 注意：這裡裝的是 coverage 本身，不是 pytest-cov —— 本專案的架構是用 subprocess
+# 開新行程執行 solution.py，pytest-cov（測自己 process 內的 import）量不到子行程，
+# 所以改用 coverage.py 直接包每一次 subprocess 呼叫，詳見 check_coverage.py 開頭的說明。
+coverage>=7.0

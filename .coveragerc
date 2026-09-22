@@ -1,0 +1,10 @@
+[run]
+branch = True
+
+[report]
+# solution.py 一律用 `python3 solution.py` 直接執行，never 被別的模組 import，
+# 所以 `if __name__ == "__main__":` 的「被 import、不執行 main()」那個分支
+# 永遠不會被走到 —— 這不是測資設計得不好，是這行本來就量不到，
+# 所以排除它，否則 branch coverage 永遠到不了 100%。
+exclude_lines =
+    if __name__ == .__main__.:
